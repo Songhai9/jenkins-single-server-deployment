@@ -40,7 +40,7 @@ pipeline {
                         source app/.venv/bin/activate
                         cd /home/ec2-user/app/
                         pip install -r requirements.txt
-                        systemctl restart app.service
+                        sudo systemctl restart app.service
 EOF
                     '''
                 }
