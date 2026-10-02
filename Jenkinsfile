@@ -8,7 +8,11 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                sh ".venv/bin/pip install -r requirements.txt"
+                sh '''
+                python3 -m venv .venv
+                .venv/bin/python -m pip install --upgrade pip
+                .venv/bin/python -m pip install -r requirements.txt
+                '''
             }
         }
 
