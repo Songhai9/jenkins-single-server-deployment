@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.12'
-        }
-    }
+    agent any
 
     environment {
         SERVER_IP = credentials('prod-server-ip')
@@ -18,7 +14,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh "pytests"
+                sh "pytest"
             }
         }
 
